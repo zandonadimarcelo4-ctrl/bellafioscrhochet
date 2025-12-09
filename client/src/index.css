@@ -1,0 +1,316 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  /* Romantic Minimalism Color Palette */
+  --primary: #E8B4C8; /* Rose Pastel */
+  --primary-foreground: #FDFBF8; /* Off-white */
+  --sidebar-primary: #E8B4C8;
+  --sidebar-primary-foreground: #FDFBF8;
+  --chart-1: #E8B4C8;
+  --chart-2: #D4C5B9;
+  --chart-3: #F5F1ED;
+  --chart-4: #3A3A3A;
+  --chart-5: #D4C5B9;
+  --radius: 0.65rem;
+  --background: oklch(0.98 0.001 65); /* Off-white */
+  --foreground: oklch(0.235 0.015 65); /* Deep Charcoal */
+  --card: oklch(1 0 0); /* White */
+  --card-foreground: oklch(0.235 0.015 65); /* Deep Charcoal */
+  --popover: oklch(1 0 0); /* White */
+  --popover-foreground: oklch(0.235 0.015 65); /* Deep Charcoal */
+  --secondary: #D4C5B9; /* Warm Beige */
+  --secondary-foreground: oklch(0.235 0.015 65); /* Deep Charcoal */
+  --muted: #F5F1ED; /* Cream */
+  --muted-foreground: #8B8B8B; /* Muted Gray */
+  --accent: #E8B4C8; /* Rose Pastel */
+  --accent-foreground: oklch(0.235 0.015 65); /* Deep Charcoal */
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: #E8D5CC; /* Soft Border */
+  --input: #F5F1ED; /* Cream */
+  --ring: #E8B4C8; /* Rose Pastel */
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.235 0.015 65);
+  --sidebar-accent: #E8B4C8;
+  --sidebar-accent-foreground: oklch(0.141 0.005 285.823);
+  --sidebar-border: #E8D5CC;
+  --sidebar-ring: #E8B4C8;
+}
+
+.dark {
+  --primary: #E8B4C8;
+  --primary-foreground: #FDFBF8;
+  --sidebar-primary: #E8B4C8;
+  --sidebar-primary-foreground: #FDFBF8;
+  --background: #FDFBF8;
+  --foreground: #3A3A3A;
+  --card: #FFFFFF;
+  --card-foreground: #3A3A3A;
+  --popover: #FFFFFF;
+  --popover-foreground: #3A3A3A;
+  --secondary: #D4C5B9;
+  --secondary-foreground: #3A3A3A;
+  --muted: #F5F1ED;
+  --muted-foreground: #8B8B8B;
+  --accent: #E8B4C8;
+  --accent-foreground: #3A3A3A;
+  --destructive: oklch(0.704 0.191 22.216);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: #E8D5CC;
+  --input: #F5F1ED;
+  --ring: #E8B4C8;
+  --chart-1: #E8B4C8;
+  --chart-2: #D4C5B9;
+  --chart-3: #F5F1ED;
+  --chart-4: #3A3A3A;
+  --chart-5: #D4C5B9;
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: #3A3A3A;
+  --sidebar-accent: #E8B4C8;
+  --sidebar-accent-foreground: #FFFFFF;
+  --sidebar-border: #E8D5CC;
+  --sidebar-ring: #E8B4C8;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    @apply cursor-pointer;
+  }
+}
+
+@layer components {
+  /**
+   * Custom container utility that centers content and adds responsive padding.
+   *
+   * This overrides Tailwind's default container behavior to:
+   * - Auto-center content (mx-auto)
+   * - Add responsive horizontal padding
+   * - Set max-width for large screens
+   *
+   * Usage: <div className="container">...</div>
+   *
+   * For custom widths, use max-w-* utilities directly:
+   * <div className="max-w-6xl mx-auto px-4">...</div>
+   */
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem; /* 16px - mobile padding */
+    padding-right: 1rem;
+  }
+
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem; /* 24px - tablet padding */
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem; /* 32px - desktop padding */
+      padding-right: 2rem;
+      max-width: 1280px; /* Standard content width */
+    }
+  }
+
+  /* Romantic Minimalism Design Components */
+
+  /* Subtle crochet texture overlay */
+  .crochet-texture {
+    background-image: 
+      repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 2px,
+        rgba(232, 180, 200, 0.03) 2px,
+        rgba(232, 180, 200, 0.03) 4px
+      ),
+      repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 2px,
+        rgba(212, 197, 185, 0.03) 2px,
+        rgba(212, 197, 185, 0.03) 4px
+      );
+  }
+
+  /* Elegant section divider with diagonal cut */
+  .section-divider {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .section-divider::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: inherit;
+    clip-path: polygon(0 30%, 100% 0, 100% 100%, 0 100%);
+    margin-top: -50px;
+  }
+
+  /* Soft shadow for product cards */
+  .card-shadow {
+    box-shadow: 0 8px 24px rgba(232, 180, 200, 0.12), 0 2px 8px rgba(0, 0, 0, 0.04);
+  }
+
+  /* Hover lift effect */
+  .hover-lift {
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(232, 180, 200, 0.16), 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  /* Smooth fade-in animation */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  /* Staggered animation for multiple elements */
+  .fade-in-up-stagger {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  .fade-in-up-stagger:nth-child(1) { animation-delay: 0.1s; }
+  .fade-in-up-stagger:nth-child(2) { animation-delay: 0.2s; }
+  .fade-in-up-stagger:nth-child(3) { animation-delay: 0.3s; }
+  .fade-in-up-stagger:nth-child(4) { animation-delay: 0.4s; }
+  .fade-in-up-stagger:nth-child(5) { animation-delay: 0.5s; }
+  .fade-in-up-stagger:nth-child(6) { animation-delay: 0.6s; }
+
+  /* Elegant button styles */
+  .btn-primary {
+    @apply px-8 py-3 bg-[#E8B4C8] text-[#3A3A3A] font-semibold rounded-lg transition-all duration-300 hover:shadow-lg hover:scale-105;
+    font-family: 'Lato', sans-serif;
+  }
+
+  .btn-secondary {
+    @apply px-8 py-3 bg-transparent border-2 border-[#E8B4C8] text-[#E8B4C8] font-semibold rounded-lg transition-all duration-300 hover:bg-[#E8B4C8] hover:text-[#3A3A3A];
+    font-family: 'Lato', sans-serif;
+  }
+
+  /* Typography utilities */
+  .font-display {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+  }
+
+  .font-body {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+  }
+
+  .text-hero {
+    @apply text-4xl md:text-5xl lg:text-6xl leading-tight;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+  }
+
+  .text-section-title {
+    @apply text-3xl md:text-4xl leading-tight;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+  }
+
+  .text-card-title {
+    @apply text-xl;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+  }
+
+  .text-body {
+    @apply text-base leading-relaxed;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+  }
+
+  .text-small {
+    @apply text-sm;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+  }
+}
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lato:wght@400;600&display=swap');
